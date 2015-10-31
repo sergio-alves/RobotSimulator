@@ -1,0 +1,9 @@
+res/res/Thumbs.db
+build/*
+build.xml
+dist/*
+manifest.mf
+nbproject/*
+ch/*
+lib/*
+dist.zip
