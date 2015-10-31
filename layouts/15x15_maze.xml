@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_45" class="java.beans.XMLDecoder">
+ <object class="ch.santosalves.robotsimulator.playground.TiledPlayground">
+  <void property="ground">
+   <array class="[I" length="15">
+    <void index="0">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="1">
+       <int>2</int>
+      </void>
+      <void index="2">
+       <int>2</int>
+      </void>
+      <void index="3">
+       <int>2</int>
+      </void>
+      <void index="4">
+       <int>2</int>
+      </void>
+      <void index="5">
+       <int>2</int>
+      </void>
+      <void index="6">
+       <int>2</int>
+      </void>
+      <void index="7">
+       <int>2</int>
+      </void>
+      <void index="8">
+       <int>2</int>
+      </void>
+      <void index="9">
+       <int>2</int>
+      </void>
+      <void index="10">
+       <int>2</int>
+      </void>
+      <void index="11">
+       <int>2</int>
+      </void>
+      <void index="12">
+       <int>2</int>
+      </void>
+      <void index="13">
+       <int>2</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="1">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="2">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="2">
+       <int>1</int>
+      </void>
+      <void index="12">
+       <int>2</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="3">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="3">
+       <int>1</int>
+      </void>
+      <void index="11">
+       <int>2</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="4">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="4">
+       <int>1</int>
+      </void>
+      <void index="10">
+       <int>2</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="5">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="5">
+       <int>1</int>
+      </void>
+      <void index="9">
+       <int>2</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="6">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="6">
+       <int>1</int>
+      </void>
+      <void index="8">
+       <int>2</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="7">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="7">
+       <int>2</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="8">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="6">
+       <int>2</int>
+      </void>
+      <void index="8">
+       <int>1</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="9">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="5">
+       <int>2</int>
+      </void>
+      <void index="9">
+       <int>1</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="10">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="4">
+       <int>2</int>
+      </void>
+      <void index="10">
+       <int>1</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="11">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="3">
+       <int>2</int>
+      </void>
+      <void index="11">
+       <int>1</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="12">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="2">
+       <int>2</int>
+      </void>
+      <void index="12">
+       <int>1</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="13">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+    <void index="14">
+     <array class="int" length="15">
+      <void index="0">
+       <int>2</int>
+      </void>
+      <void index="1">
+       <int>2</int>
+      </void>
+      <void index="2">
+       <int>2</int>
+      </void>
+      <void index="3">
+       <int>2</int>
+      </void>
+      <void index="4">
+       <int>2</int>
+      </void>
+      <void index="5">
+       <int>2</int>
+      </void>
+      <void index="6">
+       <int>2</int>
+      </void>
+      <void index="7">
+       <int>2</int>
+      </void>
+      <void index="8">
+       <int>2</int>
+      </void>
+      <void index="9">
+       <int>2</int>
+      </void>
+      <void index="10">
+       <int>2</int>
+      </void>
+      <void index="11">
+       <int>2</int>
+      </void>
+      <void index="12">
+       <int>2</int>
+      </void>
+      <void index="13">
+       <int>2</int>
+      </void>
+      <void index="14">
+       <int>2</int>
+      </void>
+     </array>
+    </void>
+   </array>
+  </void>
+  <void property="playgroundHeight">
+   <int>15</int>
+  </void>
+  <void property="playgroundWidth">
+   <int>15</int>
+  </void>
+  <void property="tileSize">
+   <int>20</int>
+  </void>
+ </object>
+</java>
