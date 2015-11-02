@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.santosalves.robotics;
+package ch.santosalves.robotsimulator;
 
 import ch.santosalves.robotsimulator.helpers.Vector2D;
 import org.junit.After;
