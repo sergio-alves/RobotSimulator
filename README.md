@@ -14,7 +14,7 @@ The interface is splitted into 3 panes (names should change slightly).
 
 ## Sandbox
 
-![alt](https://github.com/sergio-alves/RobotSimulator/tree/master/res/exec.png)
+![alt](https://raw.githubusercontent.com/sergio-alves/RobotSimulator/master/res/exec.png)
 This is the most interesting pane since it's the place where you will test you're
 newly created robot/playground. 
 
