@@ -54,9 +54,12 @@ import org.reflections.scanners.SubTypesScanner;
  * @author Sergio
  */
 public class RobotSimulation extends javax.swing.JFrame {
+
     private static final Logger LOGGER = Logger.getLogger(RobotSimulation.class.getPackage().getName());
     protected static final String ROBOTS_PACKAGE = "ch.santosalves.robotsimulator.robots";
+    protected static final String INPUTS_PACKAGE = "ch.santosalves.robotsimulator.inputs";
     protected static final String ROBOTS_PATH = ROBOTS_PACKAGE.replace(".", "/");
+    protected static final String INPUTS_PATH = INPUTS_PACKAGE.replace(".", "/");
 
     /**
      * Creates new form RobotSimulation
@@ -112,20 +115,18 @@ public class RobotSimulation extends javax.swing.JFrame {
 
     private void loadAvailableSensorsList() {
         // Initialization of robots combobox
-        Reflections reflections = new Reflections(ROBOTS_PATH, new SubTypesScanner());
+        Reflections reflections = new Reflections(INPUTS_PATH, new SubTypesScanner());
         Set<Class<? extends RobotSensorInput>> modules = reflections.getSubTypesOf(RobotSensorInput.class);
 
-        for (Class<? extends RobotSensorInput> module : modules) {
+        modules.stream().forEach(x -> {
             try {
-                sensorsAvailable.add((RobotSensorInput) module.newInstance());
+                sensorsAvailable.add((RobotSensorInput) x.newInstance());
             } catch (InstantiationException | IllegalAccessException ex) {
                 Logger.getLogger(RobotSimulation.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        });
 
         sensorsListAvailable.setListData(sensorsAvailable.toArray());
-
-        //should be possible to add other sensorsToUse in homedir/appgroupdir/appdir/... folder        
     }
 
     private void loadLayoutsAndUpdatePlaygroundsComboBox() {
@@ -944,8 +945,10 @@ public class RobotSimulation extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton1MouseClicked
 
     private void sensorsListToUseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sensorsListToUseMouseClicked
+
         if (evt.getClickCount() > 1) {
-            sensorsListToUse.remove(sensorsListToUse.getSelectedIndex());
+            sensorsToUse.remove((RobotSensorInput)sensorsListToUse.getSelectedValue());
+            sensorsListToUse.setListData(sensorsToUse.toArray());
         }
     }//GEN-LAST:event_sensorsListToUseMouseClicked
 
@@ -971,13 +974,13 @@ public class RobotSimulation extends javax.swing.JFrame {
 
         //compiles
         try (StandardJavaFileManager fileManager = jc.getStandardFileManager(diagnostics, null, null)) {
-            final String f = FileHelper.getPlugin(ROBOTS_PATH, fname).getAbsolutePath();            
-            final List<String> filesToCompile = Arrays.asList(f);            
+            final String f = FileHelper.getPlugin(ROBOTS_PATH, fname).getAbsolutePath();
+            final List<String> filesToCompile = Arrays.asList(f);
             Iterable<? extends JavaFileObject> compilationUnits = fileManager.getJavaFileObjectsFromStrings(filesToCompile);
             JavaCompiler.CompilationTask task = jc.getTask(null, fileManager, diagnostics, null, null, compilationUnits);
-            
+
             success = task.call();
-            
+
             diagnostics.getDiagnostics().stream().forEach((diagnostic) -> {
                 //Error code and line
                 String message = "[ " + diagnostic.getKind() + "] " + diagnostic.getCode() + "@" + diagnostic.getLineNumber() + ": " + diagnostic.getMessage(null);
@@ -997,8 +1000,8 @@ public class RobotSimulation extends javax.swing.JFrame {
 
     private void jbLoadLayoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbLoadLayoutMouseClicked
         final String fname = jcbPlaygrounds.getSelectedItem() + ".xml";
-        try (XMLDecoder dec = new XMLDecoder(new FileInputStream(FileHelper.getLayout("", fname)))){
-            tiledPlaygroundPanel1.setPlayground((MultiLayeredPlayground) dec.readObject());            
+        try (XMLDecoder dec = new XMLDecoder(new FileInputStream(FileHelper.getLayout("", fname)))) {
+            tiledPlaygroundPanel1.setPlayground((MultiLayeredPlayground) dec.readObject());
             //update fields
             updatePlayGroundBoundsTextFields();
         } catch (FileNotFoundException ex) {
@@ -1012,7 +1015,7 @@ public class RobotSimulation extends javax.swing.JFrame {
         final String fname = jcbPlaygrounds.getEditor().getItem().toString() + ".xml";
 
         //Save Playground model;
-        try (XMLEncoder enc = new XMLEncoder(new FileOutputStream(FileHelper.getLayout("", fname)))) {                
+        try (XMLEncoder enc = new XMLEncoder(new FileOutputStream(FileHelper.getLayout("", fname)))) {
             enc.writeObject(tiledPlaygroundPanel1.getPlayground());
 
             if (jcbPlaygrounds.getSelectedIndex() == -1) {
@@ -1042,7 +1045,7 @@ public class RobotSimulation extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         final String fname = jcbPlaygroundSelection.getSelectedItem() + ".xml";
-        
+
         try (XMLDecoder dec = new XMLDecoder(new FileInputStream(FileHelper.getLayout("", fname)))) {
             simulationPlayground.setPlayground((MultiLayeredPlayground) dec.readObject());
         } catch (FileNotFoundException ex) {
@@ -1113,7 +1116,7 @@ public class RobotSimulation extends javax.swing.JFrame {
         //creates and save the file
         try (FileWriter fw = new FileWriter(FileHelper.getPlugin(ROBOTS_PATH, fname))) {
             fw.write(codeEditor.getText());
-            
+
             jcAvailableAlgorithms.setSelectedItem(name);
 
             if (!jcAvailableAlgorithms.getSelectedItem().equals(name)) {
@@ -1131,10 +1134,10 @@ public class RobotSimulation extends javax.swing.JFrame {
 
     private void jcAvailableAlgorithmsItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcAvailableAlgorithmsItemStateChanged
         final String robotName = "Robot" + (String) jcAvailableAlgorithms.getSelectedItem() + ".java";
-        
+
         codeEditor.setContentType("text/java");
         StringBuffer sb;
-        
+
         sb = new StringBuffer();
 
         try (BufferedReader br = new BufferedReader(new FileReader(FileHelper.getPlugin(ROBOTS_PATH, robotName)))) {

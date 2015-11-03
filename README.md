@@ -13,6 +13,7 @@ The interface is splitted into 3 panes (names should change slightly).
 * Robot Building
 
 ## Sandbox
+
 ![alt](https://raw.githubusercontent.com/sergio-alves/RobotSimulator/master/res/exec.png)
 
 This is the most interesting pane since it's the place where you will test your
@@ -26,15 +27,18 @@ newly created robot/playground.
 * Click the **Start Simulation** button
 
 ### Robot cartography
+
 After simulation starts you will see the robot representation of explored world in
 an image displayed below the **Start Simulation** button.
 
 ## Playground configuration
+
 ![alt](https://raw.githubusercontent.com/sergio-alves/RobotSimulator/master/res/playground.png)
 
 In the second tab pane you will be allowed to create new playgrounds. 
 
 ### Tile selection and drawing
+
 Actually you can only select one of the three types of tiles:
 
 * Normal tile, the robot can walk on
@@ -51,11 +55,30 @@ button. The grid tiles will be painted into green if the tile type is *Wall* in
 black if *Void* and interface grey if *Normal*.
 
 ### Grid bounds
+
 You can select the grid width x grid height x tile size of your playground by setting
 the respective values to fields.
 
-###Save and Load Playgrounds
+### Save and Load Playgrounds
+
 To save input the playground name in the textbox above the *Save* button and click on it.
 
 You have the possiblity to update a previously created playground. Select it in 
 the list above the *Load* button and click on *Load* button
+
+## Robot Building
+
+![alt](https://raw.githubusercontent.com/sergio-alves/RobotSimulator/master/res/robot.png)
+
+This pane is intended to help you to develop new robots.
+
+The UI is separated into 3 areas 
+
+* left pane, where you put your robot code
+* right pane for basic operations and sensors management
+* bottom pane to see compilation results
+
+### Left pane - The java editor
+
+The java editor will help you developping your robot behaviour. Actually all
+new robots extends the GenericRobot class but let implement 
