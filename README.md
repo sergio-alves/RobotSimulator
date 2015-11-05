@@ -6,7 +6,7 @@ The goal of this software is to have the ability to quickly create and test new
 algorithms that should be deployed (after java -> c++ conversion) on my arduino
 based double wheeled robot.
 
-The interface is splitted into 3 panes (names should change slightly).
+The interface is separated into 3 panes (names should change slightly).
 
 * Sandbox
 * Playground Configuration
@@ -43,7 +43,7 @@ Actually you can only select one of the three types of tiles:
 
 * Normal tile, the robot can walk on
 * Void tile, the void detectors will detected this kind of ground. The robot cannot walk on.
-* Wall tile, the long range subsonic detectors will detected this tiles. The robot cannot go through.
+* Wall tile, the long range subsonic detectors will detect these tiles. The robot cannot go through.
 
 You can select the tile type to use for painting in the dropdown box selector, 
 the last one in the right part of the interface.
@@ -63,7 +63,7 @@ the respective values to fields.
 
 To save input the playground name in the textbox above the *Save* button and click on it.
 
-You have the possiblity to update a previously created playground. Select it in 
+You have the possibility to update a previously created playground. Select it in 
 the list above the *Load* button and click on *Load* button
 
 ## Robot Building
@@ -80,5 +80,35 @@ The UI is separated into 3 areas
 
 ### Left pane - The java editor
 
-The java editor will help you developping your robot behaviour. Actually all
-new robots extends the GenericRobot class but let implement 
+The java editor will help you developing your robot behavior. Actually all
+new robots extends the GenericRobot class that has some limitations the most 
+important : it's a two wheeled robot implementation
+
+### Bottom pane - The compiler output
+
+After compilation all the error will be displayed there. A double click will
+select the right line in the java editor.
+
+### Right pane - The basic operations and sensors management
+
+This pane will help you to select the sensors to be used by your robot. A robot
+without void detection will not detect the void obstacle and the simulation will
+run in a unwanted way.
+
+It will be possible to add multiple sensors and even multiple identical sensors.
+
+You can select your sensors by double clicking on a sensor. It will appear in the 
+list bellow. If you double click on an item in the last the element will be removed.
+
+Press *Update source code* to update the robot source code with new sensors.
+
+Finally the *Algorithm Settings* pane let you create, update, compile a source code.
+
+If you want to update a source code, select it in the list, the code will appear
+in the left pane. Make your changes and DO NOT FORGET TO SAVE. There is no auto save
+before a compile or if you close the window.
+
+When finished compile your code. If no errors are detected your code will be 
+Immediately available in the simulation pane to be used.
+
+
